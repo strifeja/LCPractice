@@ -4,13 +4,15 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        s = str(x)
-        i = 0
-        j = len(s) - 1
+        if x < 0:
+            return False
 
-        while i < j:
-            if s[i] != s[j]:
-                return False
-            i += 1
-            j -= 1
-        return True
+        i = x
+        compar = 0
+        while i > 0:
+            curr = i % 10
+            compar = (compar * 10) + curr
+            i = i // 10
+
+        return x == compar
+        
