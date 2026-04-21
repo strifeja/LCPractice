@@ -5,9 +5,9 @@ class Solution(object):
         :rtype: int
         """
         res = 0
-        for _ in range(32):
-            if n & 1:
-                res += 1
+        while n:
+            res += (n & 1)
             n >>= 1
         return res
+
     
