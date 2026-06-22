@@ -4,14 +4,13 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        max_profit = 0
-        min_price = prices[0]
+        i, result, n = 0, 0, len(prices)
 
-        for price in prices:
-            if price < min_price:
-                min_price = price
-            elif price - min_price > max_profit:
-                max_profit = price - min_price
-
-        return max_profit
-        
+        for j in range(n):
+            current_selling_price = prices[j] - prices[i]
+            if prices[j] < prices[i]:
+                i = j
+            elif current_selling_price > result:
+                result = current_selling_price
+        return result
+            
